@@ -4,6 +4,7 @@ import { PublicPagesComponent } from './public-pages.component';
 import { ListComponent } from './list/list.component';
 import { PublicPagesRoutingModule } from './public-pages-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     PublicPagesRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ]
 })
 export class PublicPagesModule { }
