@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NavBar } from '../../models/navbar.interface';
 
 @Component({
-  selector: 'app-header',
+  selector: 'header-component',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

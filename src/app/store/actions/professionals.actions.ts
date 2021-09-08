@@ -1,3 +1,3 @@
-// import { createAction } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-// export const isLoading = createAction('[Professionals Component] isLoading');
+export const isLoading = createAction('[Professionals Component] isLoading');
