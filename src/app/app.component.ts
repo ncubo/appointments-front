@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  status: boolean = false;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  
+  toggleSideBar(){
+      this.status = !this.status;       
+  }
 }

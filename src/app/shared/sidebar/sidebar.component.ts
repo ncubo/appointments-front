@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  status: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  
+  clickEvent(){
+      this.status = !this.status;       
   }
 
 }

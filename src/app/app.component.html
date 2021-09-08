@@ -1,22 +1,25 @@
-<!-- <h1>Rutas y Lazyload App</h1>
+ <div class="d-flex" id="wrapper">
 
-<ul>
-  <li><a routerLink="/professionals/edit">Edit Professional</a></li>
-  <li><a routerLink="/professionals/list">List</a></li>
-  <li><a routerLink="/professionals/new">New Professional</a></li>
-  <li><a routerLink="/professionals/search">Search Professional</a></li>
-</ul>
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
+    <div class="sidebar-heading">Appointments</div>
+    <div class="list-group list-group-flush">
+      <!-- <a class="nav-link" routerLink="professionals" routerLinkActive="mat-primary">Professionals</a> -->
+      <a routerLink="professionals" routerLinkActive="mat-primary" class="list-group-item list-group-item-action bg-light">Professionals</a>
+      <a routerLink="public-pages" routerLinkActive="mat-primary" class="list-group-item list-group-item-action bg-light">Public Pages</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
 
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
 
-<ul>
-  <li><a routerLink="/usuarios/nuevo">nuevo</a></li>
-  <li><a routerLink="/usuarios/editar">editar</a></li>
-  <li><a routerLink="/usuarios/listado">listado</a></li>
-  <li><a routerLink="/usuarios/usuario">usuario</a></li>
-</ul>
- -->
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
 
- <!-- <sidebar-component></sidebar-component> -->
- 
-<router-outlet></router-outlet>
+</div>
+<!-- /#wrapper -->
 
