@@ -10,9 +10,6 @@ export class AppComponent {
   status: boolean = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
   
   toggleSideBar(){
       this.status = !this.status;       

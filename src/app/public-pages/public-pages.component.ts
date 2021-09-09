@@ -19,7 +19,7 @@ export class PublicPagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log('PublicPagesComponent');
   }
 
 }

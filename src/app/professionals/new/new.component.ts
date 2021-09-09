@@ -11,6 +11,7 @@ export class NewComponent implements OnInit {
   constructor( private professionalServive: ProfessionalsService) { }
 
   ngOnInit(): void {
+    console.log('NewComponent');
   }
 
 }
