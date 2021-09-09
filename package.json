@@ -4,7 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng serve --c=dev",
+    "start:prod": "ng serve --c=prod",
     "build": "ng build",
+    "build:dev": "ng build --c=dev",
+    "build:prod": "ng build --c=prod",
     "watch": "ng build --watch --configuration development",
     "start:json-server": "json-server --watch src/assets/data/db.json",
     "test": "ng test"
