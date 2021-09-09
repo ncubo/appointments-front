@@ -6,9 +6,9 @@ export class Professional {
         public id: number,
         public first_name: string,
         public last_name: string,
-        public city: City,
+        public city: string, //City,
         public avatar: string,
-        public servicios: Service,
-       // public evaluacion: 
+        // public servicios: Service,
+
     ){}
 }

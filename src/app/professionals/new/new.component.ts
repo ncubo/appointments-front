@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfessionalsService } from '../professionals.service';
+import { ProfessionalsService } from 'src/app/services/professionals.service';
+
 
 @Component({
   selector: 'app-new',

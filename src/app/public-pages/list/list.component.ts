@@ -37,7 +37,7 @@ export class ListComponent implements OnInit, OnDestroy {
   getProfessionalsList(){
     this.professionalService.getProfessionals()
         .subscribe(data => {
-          console.log('data',data);
+          console.log('dataaa: ',data);
           this.store.dispatch( stopLoading() );
         })
   }
