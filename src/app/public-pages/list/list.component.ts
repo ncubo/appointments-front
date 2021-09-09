@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { IProfessional } from 'src/app/models/professional.interfase';
 import { ProfessionalsService } from 'src/app/services/professionals.service';
 import { AppState } from 'src/app/store/app.reducer';
 import { isLoading, stopLoading } from '../../store/actions/ui.actions';
@@ -14,6 +15,7 @@ export class ListComponent implements OnInit, OnDestroy {
   
   loading: Boolean = false;
   subscription: Subscription = new Subscription();
+  professionalList: IProfessional[] = [];
 
   constructor(private store: Store<AppState>, private professionalService: ProfessionalsService) { }
 
@@ -36,9 +38,12 @@ export class ListComponent implements OnInit, OnDestroy {
 
   getProfessionalsList(){
     this.professionalService.getProfessionals()
-        .subscribe(data => {
-          console.log('dataaa: ',data);
+        .subscribe(resp => {
+          if(!resp.error){
+            this.professionalList = resp.data;
+          }
           this.store.dispatch( stopLoading() );
+          console.log('this.professionalList',this.professionalList);
         })
   }
 

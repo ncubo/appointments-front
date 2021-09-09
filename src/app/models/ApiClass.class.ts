@@ -2,6 +2,11 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
 import { IProfessional } from './professional.interfase';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+})
 
 export class ApiClass {
 
