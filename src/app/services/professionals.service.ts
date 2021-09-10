@@ -9,7 +9,7 @@ import { IProfessional } from '../models/professional.interfase';
 @Injectable({
   providedIn: 'root'
 })
-// extends ApiClass
+
 export class ProfessionalsService extends ApiClass{
 
   /**

@@ -7,7 +7,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-
+/**
+ * Class to get data from Api
+ */
 export class ApiClass {
 
     public url = environment.base_url;
