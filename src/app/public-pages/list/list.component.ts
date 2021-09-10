@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IProfessional } from 'src/app/models/professional.interfase';
 import { ProfessionalsService } from 'src/app/services/professionals.service';
+import { loadProfessionals } from 'src/app/store/actions';
 import { AppState } from 'src/app/store/app.reducer';
 import { isLoading, stopLoading } from '../../store/actions/ui.actions';
 
@@ -13,37 +14,39 @@ import { isLoading, stopLoading } from '../../store/actions/ui.actions';
 })
 export class ListComponent implements OnInit, OnDestroy {
   
-  loading: Boolean = false;
+  loading: boolean = false;
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
 
   constructor(private store: Store<AppState>, private professionalService: ProfessionalsService) { }
 
   ngOnInit(): void {
-    
-    this.subscription = this.store.select('ui').subscribe( ui => {
-      console.log('ui',ui.loading);
-      this.loading = ui.loading;
-      console.log('cargando loading public page list');
-    });
+    // this.store.dispatch( loadProfessionals() )
+    console.log('algo');
+    // this.subscription = this.store.select('ui').subscribe( ui => {
+    //   console.log('ui',ui.loading);
+    //   this.loading = ui.loading;
+    //   console.log('cargando loading public page list');
+    // });
 
-    this.store.dispatch( isLoading() );
+    // this.store.dispatch( isLoading() );
     this.getProfessionalsList();
   }
 
   ngOnDestroy(): void {
-    this.store.dispatch( stopLoading() );
-    this.subscription.unsubscribe();
+    console.log('ondestroy');
+    // this.store.dispatch( stopLoading() );
+    // this.subscription.unsubscribe();
   }
 
   getProfessionalsList(){
     this.professionalService.getProfessionals()
         .subscribe(resp => {
-          if(!resp.error){
-            this.professionalList = resp.data;
-          }
-          this.store.dispatch( stopLoading() );
-          console.log('this.professionalList',this.professionalList);
+          // if(!resp.error){
+          //   this.professionalList = resp.data;
+          // }
+          // this.store.dispatch( stopLoading() );
+          console.log('this.professionalList',resp);
         })
   }
 

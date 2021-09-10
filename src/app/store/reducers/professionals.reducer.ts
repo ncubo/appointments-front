@@ -1,20 +1,31 @@
-// import { createReducer, on } from '@ngrx/store';
-// import * as professionalActions from '../actions';
+import { createReducer, on } from '@ngrx/store';
+import { loadProfessionals, loadProfessionalsSuccess, loadProfessionalsError } from '../actions';
+import { IProfessional } from '../../models/professional.interfase';
 
-// export interface State {
-//     key: String; 
-// }
+export interface ProfessionalState {
+    professionals: IProfessional[],
+    loaded: boolean,
+    loading: boolean,
+    error: any
+}
 
-// export const initialState: State = {
-//    key: 'hola',
-// }
+export const professionalsInitialState: ProfessionalState = {
+    professionals: [],
+    loaded: false,
+    loading: false,
+    error: null
+}
 
-// const _counterReducer = createReducer(initialState,
+const _professionalsReducer = createReducer(professionalsInitialState,
 
-//     on(increment, state => ({ ...state, key: 'hola'})),
+    on(loadProfessionals, state => ({ ...state, loading: true})),
 
-// );
+    on(loadProfessionalsSuccess, (state,{ professionals } ) => ({ ...state, loading: false, loaded: true, professionals: [ ...professionals ]})),
 
-// export function counterReducer(state, action) {
-//     return _counterReducer(state, action);
-// }
+    on(loadProfessionalsError, (state,{ payload } ) => ({ ...state, loading: false, loaded: false, error: payload })),
+
+);
+
+export function professionalsReducer(state: any, action: any) {
+    return _professionalsReducer(state, action);
+}
