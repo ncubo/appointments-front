@@ -12,46 +12,20 @@ import { IProfessional } from '../models/professional.interfase';
 
 export class ProfessionalsService {
 
-  /**
-   * Get all Professionals from Api
-   */
-  // getProfessionals(): Observable<{error: boolean, msg: string, data: IProfessional[]}>{
-  //   const professionals: IProfessional[] = [];
-  //   const response: any = {error: false, msg: '', data: professionals};
-  //   const url = this.url+'/professionals';
-  //   return this.http.get<IProfessional[]>(url)
-  //             .pipe(
-  //               map( res => {
-  //                 console.log('response getProfessionals', res);
-  //                 response.data = res;
-  //                 return response;
-  //               }),
-  //               catchError(this.error)
-  //             );             
-
-  // }
-
   base_url = environment.base_url;
 
-  constructor( private http: HttpClient ){
+  constructor( private http: HttpClient ){}
 
-  }
-
+   /**
+   * Get all Professionals from Api
+   */
   getProfessionals(){
-    // const professionals: IProfessional[] = [];
-    // const response: any = {error: false, msg: '', data: professionals};
+
     const url = this.base_url+'/professionals';
     return this.http.get(url)
-              // .pipe(
-              //   map( res => {
-              //     console.log('response getProfessionals', res);
-              //     // response.data = res;
-              //     // return response;
-              //     return res
-              //   }),
-              //   // catchError(this.error)
-              // );             
-
+                .pipe(
+                  map( resp => <IProfessional[]>resp)
+                )
   }
 
 }

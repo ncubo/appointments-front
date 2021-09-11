@@ -2,10 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IProfessional } from 'src/app/models/professional.interfase';
-import { ProfessionalsService } from 'src/app/services/professionals.service';
 import { loadProfessionals } from 'src/app/store/actions';
 import { AppState } from 'src/app/store/app.reducer';
-import { isLoading, stopLoading } from '../../store/actions/ui.actions';
 
 @Component({
   selector: 'app-list',
@@ -18,36 +16,20 @@ export class ListComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
 
-  constructor(private store: Store<AppState>, private professionalService: ProfessionalsService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    // this.store.dispatch( loadProfessionals() )
-    console.log('algo');
-    // this.subscription = this.store.select('ui').subscribe( ui => {
-    //   console.log('ui',ui.loading);
-    //   this.loading = ui.loading;
-    //   console.log('cargando loading public page list');
-    // });
 
-    // this.store.dispatch( isLoading() );
-    this.getProfessionalsList();
+    this.subscription = this.store.select('professionals').subscribe( ({professionals}) => {
+      this.professionalList = professionals;
+    } )
+
+    this.store.dispatch( loadProfessionals() )
   }
 
   ngOnDestroy(): void {
     console.log('ondestroy');
-    // this.store.dispatch( stopLoading() );
-    // this.subscription.unsubscribe();
-  }
-
-  getProfessionalsList(){
-    this.professionalService.getProfessionals()
-        .subscribe(resp => {
-          // if(!resp.error){
-          //   this.professionalList = resp.data;
-          // }
-          // this.store.dispatch( stopLoading() );
-          console.log('this.professionalList',resp);
-        })
+    this.subscription.unsubscribe();
   }
 
 }

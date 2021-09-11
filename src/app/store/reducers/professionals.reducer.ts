@@ -20,9 +20,23 @@ const _professionalsReducer = createReducer(professionalsInitialState,
 
     on(loadProfessionals, state => ({ ...state, loading: true})),
 
-    on(loadProfessionalsSuccess, (state,{ professionals } ) => ({ ...state, loading: false, loaded: true, professionals: [ ...professionals ]})),
+    on(loadProfessionalsSuccess, (state,{ professionals } ) => ({ 
+        ...state, 
+        loading: false, 
+        loaded: true, 
+        professionals: [ ...professionals ]
+    })),
 
-    on(loadProfessionalsError, (state,{ payload } ) => ({ ...state, loading: false, loaded: false, error: payload })),
+    on(loadProfessionalsError, (state,{ payload } ) => ({ 
+        ...state, 
+        loading: false, 
+        loaded: false, 
+        error: { 
+            url : payload.url, 
+            name: payload.name, 
+            message: payload.message 
+        } 
+    })),
 
 );
 

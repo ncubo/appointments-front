@@ -6,11 +6,11 @@
     "start": "ng serve",
     "start:dev": "ng serve --c=dev",
     "start:prod": "ng serve --c=prod",
+    "start:json-server": "json-server --watch src/assets/data/db.json",
     "build": "ng build",
     "build:dev": "ng build --c=dev",
     "build:prod": "ng build --c=prod",
     "watch": "ng build --watch --configuration development",
-    "start:json-server": "json-server --watch src/assets/data/db.json",
     "test": "ng test",
     "lint": "ng lint"
   },
