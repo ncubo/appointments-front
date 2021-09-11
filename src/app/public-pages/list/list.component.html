@@ -1,15 +1,31 @@
-<div class="card-group">
-    <ng-container *ngFor="let professional of professionalList">
-        <div class="col-lg-4 m-1">
+<div class="card-group" *ngIf="loaded; else loadingSpinner">
+    <ng-container *ngFor="let currentProfessional of professionalList">
+        <professional-card [professional] = "currentProfessional"></professional-card>
+        <!-- <div class="col-lg-2 m-1">
             <div class="card">
-                <img [src]="professional.avatar" class="card-img-top" [alt]="professional.first_name">
+                <img [src]="currentProfessional.avatar" class="card-img-top" [alt]="currentProfessional.first_name">
                 <div class="card-body">
-                  <h5 class="card-title">{{professional.first_name}} {{professional.last_name}}</h5>
-                  <p class="card-text">{{ professional.city }}</p>
+                  <h5 class="card-title">{{currentProfessional.first_name}} {{currentProfessional.last_name}}</h5>
+                  <p class="card-text">{{ currentProfessional.city }}</p>
                   <a href="#" class="btn btn-primary">Detail</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </ng-container>    
 </div>
+
+<ng-template #loadingSpinner>
+    Loading...
+    <!-- <div class="col-lg-2 m-1">
+        <div class="card">
+            <img src="currentProfessional.avatar" class="card-img-top" >
+            <div class="card-body">
+              <h5 class="card-title">dddd</h5>
+              <p class="card-text">ddddddd</p>
+              <a href="#" class="btn btn-primary">Detail</a>
+            </div>
+        </div>
+    </div> -->
+</ng-template>
+
 

@@ -4,12 +4,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { ProfessionalCardComponent } from './professional-card/professional-card.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfessionalCardComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
   exports:[
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfessionalCardComponent
   ]
 })
 export class SharedModule { }

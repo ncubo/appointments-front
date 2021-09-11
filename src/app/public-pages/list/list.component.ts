@@ -15,13 +15,15 @@ export class ListComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
+  loaded: boolean = false;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
 
-    this.subscription = this.store.select('professionals').subscribe( ({professionals}) => {
+    this.subscription = this.store.select('professionals').subscribe( ({professionals, loaded}) => {
       this.professionalList = professionals;
+      this.loaded = loaded;
     } )
 
     this.store.dispatch( loadProfessionals() )
