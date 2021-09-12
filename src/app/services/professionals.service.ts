@@ -33,11 +33,20 @@ export class ProfessionalsService {
     const url = this.base_url+'/professionals';
     console.log('insertNewProfessional',newProf);
     return this.http.post(url,newProf)
-
-    // return this.http.get(url)
-    //             .pipe(
-    //               map( resp => <IProfessional[]>resp)
-    //             )
   }
+
+
+  /**
+   * Search Professional by all properties
+   */
+   searchProfessional(text: string){
+    const url = `${this.base_url}/professionals?q=${text}`;
+    console.log('searchProfessional',text);
+    return this.http.get(url)
+                  .pipe(
+                    map( resp => <IProfessional[]>resp)
+                  )
+  }
+
 
 }

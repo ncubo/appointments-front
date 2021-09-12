@@ -12,7 +12,6 @@ import { AppState } from 'src/app/store/app.reducer';
 })
 export class ListComponent implements OnInit, OnDestroy {
 
-  loading: boolean = false;
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
   loaded: boolean = false;

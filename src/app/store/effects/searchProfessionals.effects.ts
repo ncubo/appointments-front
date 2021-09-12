@@ -4,11 +4,11 @@ import { mergeMap, tap, map, catchError } from "rxjs/operators";
 import { of } from "rxjs";
 
 import { ProfessionalsService } from "src/app/services/professionals.service";
-import * as professionalsActions from '../actions/professionals.actions';
+import * as searchProfessionalsActions from '../actions/searchProfessionals.actions';
 
 
 @Injectable()
-export class ProfessionalsEffects {
+export class SearchProfessionalsEffects {
 
     constructor( private actions$: Actions, private professionalService: ProfessionalsService){
 
@@ -16,15 +16,15 @@ export class ProfessionalsEffects {
 
     loadProfessionals$ = createEffect( (): any => 
              this.actions$.pipe(
-                    ofType( professionalsActions.loadProfessionals ),
+                    ofType( searchProfessionalsActions.loadSearchProfessionals ),
                     // tap(data => console.log('effect tapp',data)),
                     mergeMap(
-                        () => this.professionalService.getProfessionals()
+                        (action) => this.professionalService.searchProfessional(action.text)
                                     .pipe(
                                         tap( professionals => console.log('data effect',professionals)),
-                                        map( professionals => professionalsActions.loadProfessionalsSuccess({ professionals }) ),
+                                        map( professionals => searchProfessionalsActions.loadSearchProfessionalsSuccess({ professionals }) ),
                                         // catchError don't return an observable, because of that we use 'of'
-                                        catchError( err => of(professionalsActions.loadProfessionalsError({ payload: err })))
+                                        catchError( err => of(searchProfessionalsActions.loadSearchProfessionalsError({ payload: err })))
                                     )
                     )
             ) 
