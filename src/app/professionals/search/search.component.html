@@ -4,3 +4,13 @@
         <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="searchProfessional(search.value)">Search</button>
     </div>
 </div>
+
+<div class="card-group" *ngIf="loaded">
+    <ng-container *ngFor="let currentProfessional of professionalList">
+        <professional-card [professional] = "currentProfessional"></professional-card>
+    </ng-container>    
+</div>
+
+<!-- <ng-template #loadingSpinner>
+    Loading...
+</ng-template> -->
