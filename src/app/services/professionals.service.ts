@@ -35,7 +35,6 @@ export class ProfessionalsService {
     return this.http.post(url,newProf)
   }
 
-
   /**
    * Search Professional by all properties
    */
@@ -47,6 +46,5 @@ export class ProfessionalsService {
                     map( resp => <IProfessional[]>resp)
                   )
   }
-
 
 }

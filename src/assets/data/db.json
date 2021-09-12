@@ -20,6 +20,13 @@
       "city": "Pucón",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmY-0JQANQENmNn3a_Z0ztbnRUOBcpxytNCQ&usqp=CAU",
       "id": 3
+    },
+    {
+      "first_name": "Miguel",
+      "last_name": "Mayorga",
+      "city": "Pucón",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvoxReSWCNakgElKDljNImakGQyQ6vzRkcQ&usqp=CAU",
+      "id": 4
     }
   ],
   "cities": [
