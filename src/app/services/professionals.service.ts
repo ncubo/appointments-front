@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, catchError, tap} from 'rxjs/operators';
+import { map, tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { ApiClass } from '../models/ApiClass.class';
 import { IProfessional } from '../models/professional.interfase';
 
 @Injectable({
@@ -26,6 +24,20 @@ export class ProfessionalsService {
                 .pipe(
                   map( resp => <IProfessional[]>resp)
                 )
+  }
+
+  /**
+   * Add New Professional
+   */
+  insertNewProfessional(newProf: IProfessional){
+    const url = this.base_url+'/professionals';
+    console.log('insertNewProfessional',newProf);
+    return this.http.post(url,newProf)
+
+    // return this.http.get(url)
+    //             .pipe(
+    //               map( resp => <IProfessional[]>resp)
+    //             )
   }
 
 }

@@ -2,14 +2,14 @@ import { createReducer, on } from '@ngrx/store';
 import { loadProfessionals, loadProfessionalsSuccess, loadProfessionalsError } from '../actions';
 import { IProfessional } from '../../models/professional.interfase';
 
-export interface ProfessionalState {
+export interface ProfessionalsState {
     professionals: IProfessional[],
     loaded: boolean,
     loading: boolean,
     error: any
 }
 
-export const professionalsInitialState: ProfessionalState = {
+export const professionalsInitialState: ProfessionalsState = {
     professionals: [],
     loaded: false,
     loading: false,

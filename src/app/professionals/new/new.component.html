@@ -1,1 +1,61 @@
-<p>new works!</p>
+<form [formGroup]="professionalForm" class="layout-column" (ngSubmit)="newProfessional();" novalidate>
+    <div class="layout-row card-info m-2">
+        <label class="mt-20">
+            <input
+                type="text"
+                data-test-id="number-input"
+                autocomplete="off"
+                formControlName="firstName"
+                class="white large outlined"
+                placeholder="First Name"
+            />
+            <p class="error-text form-hint text-danger" 
+                data-test-id="number-input-error" 
+                *ngIf="fm.firstName.invalid && (fm.firstName.dirty || fm.firstName.touched)">
+                Invalid First Name
+            </p>
+        </label>
+    </div>
+
+    <div class="layout-row card-info m-2">
+        <label class="mt-20">
+            <input
+              type="text"
+              formControlName="lastName"
+              autocomplete="off"
+              data-test-id="name-input"
+              class="white large outlined"
+              placeholder="Last Name"
+            />
+            <p data-test-id="name-input-error"
+                class="error-text form-hint text-danger"
+                *ngIf="fm.lastName.invalid && (fm.lastName.dirty || fm.lastName.touched)">
+                Invalid Last Name
+            </p>
+          </label>
+    </div>
+    
+    <div class="layout-row card-info m-2">
+        <label class="expiry-month">
+            <input
+            type="text"
+            formControlName="city"
+            data-test-id="month-input"
+            autocomplete="off"
+            class="white large outlined"
+            placeholder="City"
+            />
+            <p data-test-id="month-input-error"
+                class="error-text form-hint text-danger"
+                *ngIf="fm.city.invalid && (fm.city.dirty || fm.city.touched)">
+            Invalid City
+            </p>
+        </label>
+    </div>
+
+    <button class="btn btn-primary" type="submit" data-test-id="submit-button" [disabled]="professionalForm.invalid">
+      Submit
+    </button>
+  </form>
+
+<!-- <button class="btn btn-primary">New Professional</button> -->

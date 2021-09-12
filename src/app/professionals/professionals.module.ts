@@ -7,7 +7,7 @@ import { ProfessionalsRoutingModule } from './professionals-routing.module';
 import { ListComponent } from './list/list.component';
 import { ProfessionalsComponent } from './professionals.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +21,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ProfessionalsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     //ProfessionalsComponent

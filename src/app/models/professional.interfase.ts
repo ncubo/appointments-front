@@ -7,7 +7,7 @@
  * @last_name {string} Last Name
  */
 export interface IProfessional {
-    id: number;
+    id?: number;
     avatar: string;
     city: string; //City,
     first_name: string;

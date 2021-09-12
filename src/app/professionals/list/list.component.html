@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="card-group" *ngIf="loaded; else loadingSpinner">
+    <ng-container *ngFor="let currentProfessional of professionalList">
+        <professional-card [professional] = "currentProfessional"></professional-card>
+    </ng-container>    
+</div>
+
+<ng-template #loadingSpinner>
+    Loading...
+</ng-template>

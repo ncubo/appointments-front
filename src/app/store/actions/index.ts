@@ -1,3 +1,3 @@
-export * from './professional.action';
+export * from './professional.actions';
 export * from './professionals.actions';
 export * from './ui.actions';

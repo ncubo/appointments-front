@@ -1,3 +1,9 @@
 #page-content-wrapper{
     width: 100%;
 }
+
+
+.sidebar-heading {
+    padding: 20px;
+    background: #6d7fcc;
+}
