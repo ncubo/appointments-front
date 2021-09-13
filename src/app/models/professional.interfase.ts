@@ -5,6 +5,7 @@
  * @city {string}
  * @first_name {string} First Name
  * @last_name {string} Last Name
+ * @services { Service[] } Last Name
  */
 export interface IProfessional {
     id?: number;

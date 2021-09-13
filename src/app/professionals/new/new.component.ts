@@ -18,7 +18,7 @@ export class NewComponent implements OnInit, OnDestroy {
 
   subscription: Subscription = new Subscription();
   professionalForm!: FormGroup;
-  professional!: IProfessional;
+  professional!: IProfessional;// = { avatar:'', city:'', first_name: '', last_name:'', services:[] };
   loading: boolean = false;
   loaded: boolean = false;
   status: TStateAction = 'waiting';

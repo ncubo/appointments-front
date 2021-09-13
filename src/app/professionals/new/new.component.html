@@ -4,9 +4,14 @@
                 class="form-label"
                 >First Name</label>
         <input type="text" 
-                class="form-control" 
+                class="form-control"
+                data-test-id="first-name" 
                 formControlName="firstName">
-        <div class="form-text text-danger"  *ngIf="fm.firstName.invalid && (fm.firstName.dirty || fm.firstName.touched)">Invalid First Name</div>
+        <div class="form-text text-danger"  
+            *ngIf="fm.firstName.invalid && (fm.firstName.dirty || fm.firstName.touched)"
+            data-test-id="first-name-error">
+            Invalid First Name
+        </div>
     </div>
 
     <div class="mb-3">
@@ -14,10 +19,12 @@
                 class="form-label"
                 >Last Name</label>
         <input type="text" 
-                class="form-control" 
+                class="form-control"
+                data-test-id="last-name" 
                 formControlName="lastName">
         <div class="form-text text-danger"  
-            *ngIf="fm.lastName.invalid && (fm.lastName.dirty || fm.lastName.touched)">
+            *ngIf="fm.lastName.invalid && (fm.lastName.dirty || fm.lastName.touched)"
+            data-test-id="last-name-error">
             Invalid Last Name
         </div>
     </div>
@@ -28,9 +35,11 @@
                 >City</label>
         <input type="text" 
                 class="form-control" 
+                data-test-id="city"
                 formControlName="city">
         <div class="form-text text-danger"  
-            *ngIf="fm.city.invalid && (fm.city.dirty || fm.city.touched)">
+            *ngIf="fm.city.invalid && (fm.city.dirty || fm.city.touched)"
+            data-test-id="city-error">
             Invalid City
         </div>
     </div>
@@ -41,9 +50,11 @@
                 >About Me</label>
         <input type="text" 
                 class="form-control" 
+                data-test-id="about-me"
                 formControlName="aboutMe">
         <div class="form-text text-danger"  
-            *ngIf="fm.aboutMe.invalid && (fm.aboutMe.dirty || fm.aboutMe.touched)">
+            *ngIf="fm.aboutMe.invalid && (fm.aboutMe.dirty || fm.aboutMe.touched)"
+            data-test-id="about-me-error">
             Invalid Data
         </div>
     </div>
@@ -54,9 +65,11 @@
                 >Services</label>
         <input type="text" 
                 class="form-control" 
+                data-test-id="services"
                 formControlName="services">
         <div class="form-text text-danger"  
-            *ngIf="fm.services.invalid && (fm.services.dirty || fm.services.touched)">
+            *ngIf="fm.services.invalid && (fm.services.dirty || fm.services.touched)"
+            data-test-id="services-error">
             Invalid Data
         </div>
     </div>
@@ -67,9 +80,11 @@
                 >Time Table</label>
         <input type="text" 
                 class="form-control" 
+                data-test-id="time-table"
                 formControlName="timeTable">
         <div class="form-text text-danger"  
-            *ngIf="fm.timeTable.invalid && (fm.timeTable.dirty || fm.timeTable.touched)">
+            *ngIf="fm.timeTable.invalid && (fm.timeTable.dirty || fm.timeTable.touched)"
+            data-test-id="time-table-error">
             Invalid Time Table
         </div>
     </div>
@@ -83,7 +98,11 @@
         </div>
       </div>
 
-    <button class="btn btn-primary" [ngStyle]="{float:'right'}" type="submit" data-test-id="submit-button" [disabled]="professionalForm.invalid">
+    <button class="btn btn-primary" 
+            [ngStyle]="{float:'right'}" 
+            type="submit" 
+            data-test-id="submit-button" 
+            [disabled]="professionalForm.invalid">
       Submit
     </button>
 
