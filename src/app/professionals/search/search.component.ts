@@ -14,22 +14,22 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
+  loading: boolean = true;
   loaded: boolean = false;
 
   constructor( private store: Store<AppState> ) { }
 
   ngOnInit(): void {
     console.log('SearchComponent');
-    this.subscription = this.store.select('searchProfessionals').subscribe( ({professionals, loaded}) => {
+    this.subscription = this.store.select('searchProfessionals').subscribe( ({professionals, loaded, loading}) => {
       this.professionalList = professionals;
-      console.log('this.professionalList',this.professionalList);
+      this.loading = loading;
       this.loaded = loaded;
     } )
   }
 
   searchProfessional(textToSearch: string){
 
-    console.log('textToSearch: ',textToSearch);
     if(textToSearch !== ''){
       this.store.dispatch( loadSearchProfessionals({text: textToSearch}));
     }
@@ -37,7 +37,6 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('ondestroy');
     this.subscription.unsubscribe();
   }
   

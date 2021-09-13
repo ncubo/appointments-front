@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { IProfessional } from '../../models/professional.interfase';
 import { newProfessional } from '../../store/actions/professional.actions';
+import { ProfessionalsService } from 'src/app/services/professionals.service';
 
 
 @Component({
@@ -11,12 +12,12 @@ import { newProfessional } from '../../store/actions/professional.actions';
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.css']
 })
-export class NewComponent implements OnInit {
+export class NewComponent {
 
   professionalForm!: FormGroup;
   professional!: IProfessional;
 
-  constructor( private fb: FormBuilder, private store: Store<AppState>) { 
+  constructor( private fb: FormBuilder, private store: Store<AppState>, private professionalService: ProfessionalsService) { 
     this.createForm();
   }
 
@@ -28,10 +29,6 @@ export class NewComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log('NewComponent proff');
-  }
-
   get fm() {
     return this.professionalForm.controls;
   }
@@ -39,7 +36,6 @@ export class NewComponent implements OnInit {
   newProfessional(){
 
     if(this.professionalForm.valid){
-      console.log('new Professional', this.professionalForm);
 
       const avatarRdm = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmY-0JQANQENmNn3a_Z0ztbnRUOBcpxytNCQ&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvoxReSWCNakgElKDljNImakGQyQ6vzRkcQ&usqp=CAU'];
   
@@ -57,12 +53,13 @@ export class NewComponent implements OnInit {
             timetable: 'Monday to Wednesday - 15 to 19'
           }
         ]
-      }
+      };
+
+      // this.professionalService.insertNewProfessional(this.professional)
+              // .subscribe(resp => console.log('resppp',resp));
   
-  
-      console.log(this.professional);
-      this.store.dispatch( newProfessional({professional: this.professional}) );
-      // this.professionalServive.insertNewProfessional().subscribe( res => console.log('resss newProfe',res));
+     this.store.dispatch( newProfessional({professional: this.professional}) );
+
     }
     
   }

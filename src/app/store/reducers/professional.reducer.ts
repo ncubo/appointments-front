@@ -2,17 +2,16 @@ import { createReducer, on } from '@ngrx/store';
 import { newProfessional, newProfessionalSuccess, newProfessionalError, 
         detailProfessional, detailProfessionalSuccess, detailProfessionalError } from '../actions';
 import { IProfessional } from '../../models/professional.interfase';
-import { searchProfessionalsReducer } from './searchProfessionals.reducer';
-
-type stateNewProfessional = 'ok' | 'error' | 'waiting';
+import { IError } from 'src/app/models/error.interface';
+import { stateAction } from '../../models/stateAction.type';
 
 export interface ProfessionalState {
     idProf?: number,
     professional: IProfessional,
     loaded: boolean,
     loading: boolean,
-    state: stateNewProfessional,
-    error: any
+    state: stateAction,
+    error: IError
 }
 
 export const professionalInitialState: ProfessionalState = {
@@ -20,7 +19,7 @@ export const professionalInitialState: ProfessionalState = {
     loaded: false,
     loading: false,
     state: 'waiting',
-    error: null
+    error: { url: '', name: '', message: ''}
 }
 
 const _professionalReducer = createReducer(professionalInitialState,
@@ -67,11 +66,16 @@ const _professionalReducer = createReducer(professionalInitialState,
         state: 'ok'
     })),
 
-    on(detailProfessionalError, (state) => ({ 
+    on(detailProfessionalError, (state, { payload }) => ({ 
         ...state, 
         loading: false, 
         loaded: false, 
-        state: 'error'
+        state: 'error',
+        error: { 
+            url : payload.url, 
+            name: payload.name, 
+            message: payload.message 
+        } 
     })),
 
 );

@@ -23,7 +23,7 @@ export class ProfessionalsService {
     return this.http.get(url)
                 .pipe(
                   map( resp => <IProfessional[]>resp)
-                )
+                );
   }
 
   /**
@@ -35,7 +35,7 @@ export class ProfessionalsService {
     return this.http.get(url)
                 .pipe(
                   map( resp => <IProfessional>resp)
-                )
+                );
   }
 
   /**
@@ -43,8 +43,7 @@ export class ProfessionalsService {
    */
   insertNewProfessional(newProf: IProfessional){
     const url = this.base_url+'/professionals';
-    console.log('insertNewProfessional',newProf);
-    return this.http.post(url,newProf)
+    return this.http.post(url,newProf);
   }
 
   /**
@@ -56,7 +55,7 @@ export class ProfessionalsService {
     return this.http.get(url)
                   .pipe(
                     map( resp => <IProfessional[]>resp)
-                  )
+                  );
   }
 
 }
