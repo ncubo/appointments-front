@@ -1,1 +1,1 @@
-export type stateAction = 'ok' | 'error' | 'waiting';
+export type TStateAction = 'ok' | 'error' | 'waiting';

@@ -35,9 +35,18 @@
         </div>
     </div>
     
+    <div class="col-lg-12">    
+        <div class="alert alert-danger" *ngIf="status === 'error'" role="alert">
+            {{ error.message }}
+        </div>
+        <div class="alert alert-success" *ngIf="status === 'ok'" role="alert">
+            Added Successfuly
+        </div>
+      </div>
 
     <button class="btn btn-primary" [ngStyle]="{float:'right'}" type="submit" data-test-id="submit-button" [disabled]="professionalForm.invalid">
       Submit
     </button>
+
   </form>
 

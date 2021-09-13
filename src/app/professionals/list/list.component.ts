@@ -20,7 +20,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.subscription = this.store.select('professionals').subscribe( ({professionals, loaded}) => {
+    this.subscription = this.store.select('professionals').subscribe( ({ professionals, loaded }) => {
       this.professionalList = professionals;
       this.loaded = loaded;
     } );

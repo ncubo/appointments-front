@@ -5,13 +5,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ProfessionalCardComponent } from './professional-card/professional-card.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
-    ProfessionalCardComponent
+    ProfessionalCardComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ProfessionalCardComponent } from './professional-card/professional-card
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
-    ProfessionalCardComponent
+    ProfessionalCardComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

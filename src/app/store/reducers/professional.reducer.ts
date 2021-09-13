@@ -3,14 +3,14 @@ import { newProfessional, newProfessionalSuccess, newProfessionalError,
         detailProfessional, detailProfessionalSuccess, detailProfessionalError } from '../actions';
 import { IProfessional } from '../../models/professional.interfase';
 import { IError } from 'src/app/models/error.interface';
-import { stateAction } from '../../models/stateAction.type';
+import { TStateAction } from '../../models/stateAction.type';
 
 export interface ProfessionalState {
     idProf?: number,
     professional: IProfessional,
     loaded: boolean,
     loading: boolean,
-    state: stateAction,
+    state: TStateAction,
     error: IError
 }
 

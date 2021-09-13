@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IProfessional } from 'src/app/models/professional.interfase';
-import { stateAction } from 'src/app/models/stateAction.type';
+import { TStateAction } from 'src/app/models/stateAction.type';
 import { detailProfessional } from 'src/app/store/actions';
 import { AppState } from 'src/app/store/app.reducer';
 import { IError } from '../../models/error.interface';
@@ -20,7 +20,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   professional!: IProfessional;
   loading: boolean = false;
   loaded: boolean = false;
-  status: stateAction = 'waiting';
+  status: TStateAction = 'waiting';
   error!: IError;
   
   constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) { }
