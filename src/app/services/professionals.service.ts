@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap} from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IProfessional } from '../models/professional.interfase';
 
@@ -43,7 +43,7 @@ export class ProfessionalsService {
    */
   insertNewProfessional(newProf: IProfessional){
     const url = this.base_url+'/professionals';
-    return this.http.post(url,newProf);
+    return this.http.post(url, newProf);
   }
 
   /**
@@ -51,7 +51,7 @@ export class ProfessionalsService {
    */
    searchProfessional(text: string){
     const url = `${this.base_url}/professionals?q=${text}`;
-    console.log('searchProfessional',text);
+    console.log('searchProfessional', text);
     return this.http.get(url)
                   .pipe(
                     map( resp => <IProfessional[]>resp)

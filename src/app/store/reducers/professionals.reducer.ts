@@ -18,16 +18,16 @@ export const professionalsInitialState: ProfessionalsState = {
 
 const _professionalsReducer = createReducer(professionalsInitialState,
 
-    on(loadProfessionals, state => ({ ...state, loading: true})),
+    on(loadProfessionals, state => ({ ...state, loading: true })),
 
-    on(loadProfessionalsSuccess, (state,{ professionals } ) => ({ 
+    on(loadProfessionalsSuccess, (state, { professionals } ) => ({ 
         ...state, 
         loading: false, 
         loaded: true, 
         professionals: [ ...professionals ]
     })),
 
-    on(loadProfessionalsError, (state,{ payload } ) => ({ 
+    on(loadProfessionalsError, (state, { payload } ) => ({ 
         ...state, 
         loading: false, 
         loaded: false, 

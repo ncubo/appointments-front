@@ -9,13 +9,6 @@ import { IProfessional } from '../../models/professional.interfase';
 export class ProfessionalCardComponent implements OnInit {
 
   @Input() professional!: IProfessional;
-  // {
-  //   id: 0,
-  //   avatar: '',
-  //   city: '',
-  //   first_name: '',
-  //   last_name: ''
-  // };
 
   constructor() { }
 

@@ -1,18 +1,6 @@
 <ng-container *ngIf="status === 'ok' || status === 'waiting'; else errorTemplate">
     <div class="card mb-3" style="max-width: 540px;" *ngIf="loaded">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img [src]="professional.avatar" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{professional.first_name}} {{professional.last_name}} ({{ professional.city }})</h5>
-              <p class="card-text"><b>About me:</b> {{ professional.services[0].aboutme }}</p>
-              <p class="card-text"><b>Time Table:</b> {{ professional.services[0].timetable }}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
+        <app-professional-card-detail [professional]="professional"></app-professional-card-detail>
     </div>
 </ng-container>
 

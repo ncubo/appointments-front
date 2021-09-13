@@ -15,11 +15,11 @@ export interface ProfessionalState {
 }
 
 export const professionalInitialState: ProfessionalState = {
-    professional: {avatar:'',first_name:'',city:'', last_name:'', services: []},
+    professional: { avatar:'', first_name:'', city:'', last_name:'', services: [] },
     loaded: false,
     loading: false,
     state: 'waiting',
-    error: { url: '', name: '', message: ''}
+    error: { url: '', name: '', message: '' }
 }
 
 const _professionalReducer = createReducer(professionalInitialState,
@@ -37,12 +37,12 @@ const _professionalReducer = createReducer(professionalInitialState,
         state: 'ok'
     })),
 
-    on( newProfessionalError, (state,{ payload } ) => ({ 
+    on( newProfessionalError, (state, { payload } ) => ({ 
         ...state, 
         loading: false, 
         loaded: false, 
         state: 'error',
-        professional: {avatar:'',first_name:'',city:'', last_name:'', services:[]},
+        professional: { avatar:'', first_name:'', city:'', last_name:'', services:[] },
         error: { 
             url : payload.url, 
             name: payload.name, 

@@ -34,7 +34,9 @@
             "prefix": "",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "comma-spacing": ["error", { "before": false, "after": true }],
+        "object-curly-spacing": ["error", "always"]
       }
     },
     {
@@ -43,8 +45,7 @@
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {}
+      ]
     }
   ]
 }

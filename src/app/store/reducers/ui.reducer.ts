@@ -11,8 +11,8 @@ export const initialState: UiState = {
 
 const _uiReducer = createReducer(initialState,
 
-    on(isLoading, state => ({ ...state, loading: true})),
-    on(stopLoading, state => ({ ...state, loading: false})),
+    on(isLoading, state => ({ ...state, loading: true })),
+    on(stopLoading, state => ({ ...state, loading: false })),
 
 );
 

@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ProfessionalCardComponent } from './professional-card/professional-card.component';
 import { LoaderComponent } from './loader/loader.component';
+import { ProfessionalCardDetailComponent } from './professional-card-detail/professional-card-detail.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { LoaderComponent } from './loader/loader.component';
     HeaderComponent,
     FooterComponent,
     ProfessionalCardComponent,
-    LoaderComponent
+    LoaderComponent,
+    ProfessionalCardDetailComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { LoaderComponent } from './loader/loader.component';
     HeaderComponent,
     FooterComponent,
     ProfessionalCardComponent,
+    ProfessionalCardDetailComponent,
     LoaderComponent
   ]
 })

@@ -21,7 +21,7 @@ export class ProfessionalEffects {
                     mergeMap(
                         ( action ) => this.professionalService.insertNewProfessional(action.professional)
                                     .pipe(
-                                        tap( professional => console.log('data effect',professional)),
+                                        tap( professional => console.log('data effect', professional)),
                                         map( () => professionalsAction.newProfessionalSuccess() ),
                                         // catchError don't return an observable, because of that we use 'of'
                                         catchError( err => of(professionalsAction.newProfessionalError({ payload: err })))
@@ -37,8 +37,8 @@ export class ProfessionalEffects {
                     mergeMap(
                         ( action ) => this.professionalService.getProfessionalsById(action.id)
                                     .pipe(
-                                        tap( professional => console.log('data effect',professional)),
-                                        map( (professional) => professionalsAction.detailProfessionalSuccess({professional}) ),
+                                        tap( professional => console.log('data effect', professional)),
+                                        map( (professional) => professionalsAction.detailProfessionalSuccess({ professional }) ),
                                         // catchError don't return an observable, because of that we use 'of'
                                         catchError( err => of(professionalsAction.detailProfessionalError({ payload: err })))
                                     )

@@ -27,6 +27,6 @@ export class ApiClass {
         }else{
             errorMessage = `Error Code: ${ error.status }\nMessage: ${error.message}`;
         }
-        return of({error: true, msg: errorMessage, data: this.professionals});
+        return of({ error: true, msg: errorMessage, data: this.professionals });
     }
 }

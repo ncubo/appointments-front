@@ -20,16 +20,16 @@ export const searchProfessionalsInitialState: SearchProfessionalsState = {
 
 const _searchProfessionalsReducer = createReducer(searchProfessionalsInitialState,
 
-    on(loadSearchProfessionals, (state, { text }) => ({ ...state, loading: true, text:text})),
+    on(loadSearchProfessionals, (state, { text }) => ({ ...state, loading: true, text:text })),
 
-    on(loadSearchProfessionalsSuccess, (state,{ professionals } ) => ({ 
+    on(loadSearchProfessionalsSuccess, (state, { professionals } ) => ({ 
         ...state, 
         loading: false, 
         loaded: true, 
         professionals: [ ...professionals ]
     })),
 
-    on(loadSearchProfessionalsError, (state,{ payload } ) => ({ 
+    on(loadSearchProfessionalsError, (state, { payload } ) => ({ 
         ...state, 
         loading: false, 
         loaded: false, 

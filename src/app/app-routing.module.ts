@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'public-pages'
+    redirectTo: 'professionals'
   }
 ];
 

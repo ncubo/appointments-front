@@ -27,7 +27,7 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.subscription = this.store.select('professional').subscribe( ({professional, loading, loaded, error, state}) => {
+    this.subscription = this.store.select('professional').subscribe( ({ professional, loading, loaded, error, state }) => {
       this.professional = professional;
       this.loading = loading;
       this.loaded = loaded;
@@ -36,7 +36,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     } );
 
     const id = this.activatedRoute.snapshot.params.id;
-    this.store.dispatch( detailProfessional({id}) );
+    this.store.dispatch( detailProfessional({ id }) );
 
   }
 

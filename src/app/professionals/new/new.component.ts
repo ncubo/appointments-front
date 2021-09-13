@@ -30,7 +30,7 @@ export class NewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.subscription = this.store.select('professional').subscribe( ({professional, loading, loaded, error, state}) => {
+    this.subscription = this.store.select('professional').subscribe( ({ professional, loading, loaded, error, state }) => {
       this.professional = professional;
       this.loading = loading;
       this.loaded = loaded;
@@ -53,7 +53,7 @@ export class NewComponent implements OnInit, OnDestroy {
   createForm() {
     this.professionalForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)] ],
-      lastName: ['', [Validators.required,Validators.minLength(2), Validators.maxLength(30)]],
+      lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
       city: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(70)]],
       services: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(70)]],
       timeTable: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(70)]],
@@ -82,7 +82,7 @@ export class NewComponent implements OnInit, OnDestroy {
 
     if(this.professionalForm.valid){
 
-      const avatarRdm = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmY-0JQANQENmNn3a_Z0ztbnRUOBcpxytNCQ&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvoxReSWCNakgElKDljNImakGQyQ6vzRkcQ&usqp=CAU'];
+      const avatarRdm = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmY-0JQANQENmNn3a_Z0ztbnRUOBcpxytNCQ&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvoxReSWCNakgElKDljNImakGQyQ6vzRkcQ&usqp=CAU'];
   
       let oneOrZero = (Math.random()>=0.5)? 1 : 0;
   
@@ -100,7 +100,7 @@ export class NewComponent implements OnInit, OnDestroy {
         ]
       };
   
-      this.store.dispatch( newProfessional({professional: this.professional}) );
+      this.store.dispatch( newProfessional({ professional: this.professional }) );
 
     }
     
