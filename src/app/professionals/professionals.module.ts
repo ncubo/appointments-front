@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { ProfessionalsComponent } from './professionals.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     EditComponent,
     SearchComponent,
     ListComponent,
-    ProfessionalsComponent
+    ProfessionalsComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,

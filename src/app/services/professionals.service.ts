@@ -27,6 +27,18 @@ export class ProfessionalsService {
   }
 
   /**
+   * Get all Professionals from Api
+   */
+   getProfessionalsById(id: number){
+
+    const url = `${this.base_url}/professionals/${id}`;
+    return this.http.get(url)
+                .pipe(
+                  map( resp => <IProfessional>resp)
+                )
+  }
+
+  /**
    * Add New Professional
    */
   insertNewProfessional(newProf: IProfessional){

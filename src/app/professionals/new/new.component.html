@@ -1,61 +1,43 @@
-<form [formGroup]="professionalForm" class="layout-column" (ngSubmit)="newProfessional();" novalidate>
-    <div class="layout-row card-info m-2">
-        <label class="mt-20">
-            <input
-                type="text"
-                data-test-id="number-input"
-                autocomplete="off"
-                formControlName="firstName"
-                class="white large outlined"
-                placeholder="First Name"
-            />
-            <p class="error-text form-hint text-danger" 
-                data-test-id="number-input-error" 
-                *ngIf="fm.firstName.invalid && (fm.firstName.dirty || fm.firstName.touched)">
-                Invalid First Name
-            </p>
-        </label>
+<form [formGroup]="professionalForm" class="col-lg-4 m-2" (submit)="newProfessional();" novalidate>
+    <div class="mb-3">
+        <label type="text"
+                class="form-label"
+                >First Name</label>
+        <input type="text" 
+                class="form-control" 
+                formControlName="firstName">
+        <div class="form-text text-danger"  *ngIf="fm.firstName.invalid && (fm.firstName.dirty || fm.firstName.touched)">Invalid First Name</div>
     </div>
 
-    <div class="layout-row card-info m-2">
-        <label class="mt-20">
-            <input
-              type="text"
-              formControlName="lastName"
-              autocomplete="off"
-              data-test-id="name-input"
-              class="white large outlined"
-              placeholder="Last Name"
-            />
-            <p data-test-id="name-input-error"
-                class="error-text form-hint text-danger"
-                *ngIf="fm.lastName.invalid && (fm.lastName.dirty || fm.lastName.touched)">
-                Invalid Last Name
-            </p>
-          </label>
+    <div class="mb-3">
+        <label type="text"
+                class="form-label"
+                >Last Name</label>
+        <input type="text" 
+                class="form-control" 
+                formControlName="lastName">
+        <div class="form-text text-danger"  
+            *ngIf="fm.lastName.invalid && (fm.lastName.dirty || fm.lastName.touched)">
+            Invalid Last Name
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label type="text"
+                class="form-label"
+                >City</label>
+        <input type="text" 
+                class="form-control" 
+                formControlName="city">
+        <div class="form-text text-danger"  
+            *ngIf="fm.city.invalid && (fm.city.dirty || fm.city.touched)">
+            Invalid City
+        </div>
     </div>
     
-    <div class="layout-row card-info m-2">
-        <label class="expiry-month">
-            <input
-            type="text"
-            formControlName="city"
-            data-test-id="month-input"
-            autocomplete="off"
-            class="white large outlined"
-            placeholder="City"
-            />
-            <p data-test-id="month-input-error"
-                class="error-text form-hint text-danger"
-                *ngIf="fm.city.invalid && (fm.city.dirty || fm.city.touched)">
-            Invalid City
-            </p>
-        </label>
-    </div>
 
-    <button class="btn btn-primary" type="submit" data-test-id="submit-button" [disabled]="professionalForm.invalid">
+    <button class="btn btn-primary" [ngStyle]="{float:'right'}" type="submit" data-test-id="submit-button" [disabled]="professionalForm.invalid">
       Submit
     </button>
   </form>
 
-<!-- <button class="btn btn-primary">New Professional</button> -->

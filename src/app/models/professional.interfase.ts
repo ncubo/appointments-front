@@ -12,4 +12,11 @@ export interface IProfessional {
     city: string; //City,
     first_name: string;
     last_name: string;
+    services: Service[]
+}
+
+interface Service {
+    aboutme: string,
+    service: string,
+    timetable: string
 }

@@ -12,9 +12,10 @@ export const navbarListProfessionals: NavBar[] = [
     {
       name: 'Search', 
       link: 'search'
-    },
-    {
-      name: 'Edit Professional', 
-      link: 'edit'
     }
+    // ,
+    // {
+    //   name: 'Edit Professional', 
+    //   link: 'edit'
+    // }
   ];

@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { IProfessional } from 'src/app/models/professional.interfase';
 
+
 export const loadProfessionals = createAction('[Professionals] Load Professionals');
 
 export const loadProfessionalsSuccess = createAction(

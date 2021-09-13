@@ -23,7 +23,7 @@ export class ListComponent implements OnInit, OnDestroy {
     this.subscription = this.store.select('professionals').subscribe( ({professionals, loaded}) => {
       this.professionalList = professionals;
       this.loaded = loaded;
-    } )
+    } );
 
     this.store.dispatch( loadProfessionals() )
   }

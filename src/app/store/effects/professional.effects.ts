@@ -30,4 +30,20 @@ export class ProfessionalEffects {
             ) 
     );
 
+    loadProfessionalDetail$ = createEffect( (): any => 
+             this.actions$.pipe(
+                    ofType( professionalsAction.detailProfessional ),
+                    // tap(data => console.log('effect tapp',data)),
+                    mergeMap(
+                        ( action ) => this.professionalService.getProfessionalsById(action.id)
+                                    .pipe(
+                                        tap( professional => console.log('data effect',professional)),
+                                        map( (professional) => professionalsAction.detailProfessionalSuccess({professional}) ),
+                                        // catchError don't return an observable, because of that we use 'of'
+                                        catchError( err => of(professionalsAction.detailProfessionalError({ payload: err })))
+                                    )
+                    )
+            ) 
+    );
+
 }

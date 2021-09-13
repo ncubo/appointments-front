@@ -14,12 +14,7 @@ import { newProfessional } from '../../store/actions/professional.actions';
 export class NewComponent implements OnInit {
 
   professionalForm!: FormGroup;
-  professional: IProfessional = {
-    first_name: '',
-    last_name: '',
-    city: '',
-    avatar: ''
-  };
+  professional!: IProfessional;
 
   constructor( private fb: FormBuilder, private store: Store<AppState>) { 
     this.createForm();
@@ -33,12 +28,8 @@ export class NewComponent implements OnInit {
     });
   }
 
-
   ngOnInit(): void {
     console.log('NewComponent proff');
-
-    // this.professionalServive.insertNewProfessional()
-    //               .subscribe( res => console.log('resss newProfe',res));
   }
 
   get fm() {
@@ -58,13 +49,19 @@ export class NewComponent implements OnInit {
         first_name: this.professionalForm.value.firstName,
         last_name: this.professionalForm.value.lastName,
         city: this.professionalForm.value.city,
-        avatar: avatarRdm[oneOrZero]
+        avatar: avatarRdm[oneOrZero],
+        services: [
+          {
+            aboutme: 'Im a doctor from XX university and ....',
+            service: 'Nutritionist',
+            timetable: 'Monday to Wednesday - 15 to 19'
+          }
+        ]
       }
   
   
       console.log(this.professional);
       this.store.dispatch( newProfessional({professional: this.professional}) );
-      
       // this.professionalServive.insertNewProfessional().subscribe( res => console.log('resss newProfe',res));
     }
     
