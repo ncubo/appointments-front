@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
-  loading: boolean = true;
+  loading: boolean = false;
   loaded: boolean = false;
 
   constructor( private store: Store<AppState> ) { }

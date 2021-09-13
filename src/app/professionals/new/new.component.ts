@@ -29,7 +29,6 @@ export class NewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('');
 
     this.subscription = this.store.select('professional').subscribe( ({professional, loading, loaded, error, state}) => {
       this.professional = professional;
@@ -55,7 +54,10 @@ export class NewComponent implements OnInit, OnDestroy {
     this.professionalForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)] ],
       lastName: ['', [Validators.required,Validators.minLength(2), Validators.maxLength(30)]],
-      city: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(70)]]
+      city: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(70)]],
+      services: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(70)]],
+      timeTable: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(70)]],
+      aboutMe: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(70)]],
     });
   }
 
@@ -91,9 +93,9 @@ export class NewComponent implements OnInit, OnDestroy {
         avatar: avatarRdm[oneOrZero],
         services: [
           {
-            aboutme: 'Im a doctor from XX university and ....',
-            service: 'Nutritionist',
-            timetable: 'Monday to Wednesday - 15 to 19'
+            aboutme: this.professionalForm.value.aboutMe,
+            service: this.professionalForm.value.services,
+            timetable: this.professionalForm.value.timeTable
           }
         ]
       };

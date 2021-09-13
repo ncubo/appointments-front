@@ -22,7 +22,7 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvoxReSWCNakgElKDljNImakGQyQ6vzRkcQ&usqp=CAU",
       "services": [
         {
-          "aboutme": "Im a doctor from XX university and ....",
+          "aboutme": "Im a Psychologist from ....",
           "service": "Psychologist",
           "timetable": "Monday to Friday - 13 to 19"
         }
@@ -36,11 +36,25 @@
       "id": 3,
       "services": [
         {
-          "aboutme": "Im a doctor from XX university and ....",
+          "aboutme": "Im a Speech Therapist from..",
           "service": "Speech Therapist",
           "timetable": "Monday to Friday - 14 to 20"
         }
       ]
+    },
+    {
+      "first_name": "Miguel",
+      "last_name": "Mayorga",
+      "city": "Temuco",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvoxReSWCNakgElKDljNImakGQyQ6vzRkcQ&usqp=CAU",
+      "services": [
+        {
+          "aboutme": "I'm IT Engineer",
+          "service": "Software developer",
+          "timetable": "Monday to Friday - 9 to 18"
+        }
+      ],
+      "id": 4
     }
   ],
   "cities": [

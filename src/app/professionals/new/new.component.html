@@ -34,6 +34,45 @@
             Invalid City
         </div>
     </div>
+
+    <div class="mb-3">
+        <label type="text"
+                class="form-label"
+                >About Me</label>
+        <input type="text" 
+                class="form-control" 
+                formControlName="aboutMe">
+        <div class="form-text text-danger"  
+            *ngIf="fm.aboutMe.invalid && (fm.aboutMe.dirty || fm.aboutMe.touched)">
+            Invalid Data
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label type="text"
+                class="form-label"
+                >Services</label>
+        <input type="text" 
+                class="form-control" 
+                formControlName="services">
+        <div class="form-text text-danger"  
+            *ngIf="fm.services.invalid && (fm.services.dirty || fm.services.touched)">
+            Invalid Data
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label type="text"
+                class="form-label"
+                >Time Table</label>
+        <input type="text" 
+                class="form-control" 
+                formControlName="timeTable">
+        <div class="form-text text-danger"  
+            *ngIf="fm.timeTable.invalid && (fm.timeTable.dirty || fm.timeTable.touched)">
+            Invalid Time Table
+        </div>
+    </div>
     
     <div class="col-lg-12">    
         <div class="alert alert-danger" *ngIf="status === 'error'" role="alert">
