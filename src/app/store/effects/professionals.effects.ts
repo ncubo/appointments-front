@@ -21,10 +21,11 @@ export class ProfessionalsEffects {
                     mergeMap(
                         () => this.professionalService.getProfessionals()
                                     .pipe(
-                                        tap( professionals => console.log('data effect', professionals)),
+                                        // tap( professionals => console.log('data effect', professionals)),
                                         map( professionals => professionalsActions.loadProfessionalsSuccess({ professionals }) ),
                                         // catchError don't return an observable, because of that we use 'of'
-                                        catchError( err => of(professionalsActions.loadProfessionalsError({ payload: err })))
+                                        catchError( err => of(professionalsActions.loadProfessionalsError({ payload: err }))),
+                                        // tap(err => console.log('errrrrr', err))
                                     )
                     )
             ) 

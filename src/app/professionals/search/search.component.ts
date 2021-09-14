@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IProfessional } from 'src/app/models/professional.interfase';
+import { clearSearchProfessionals } from 'src/app/store/actions';
 import { AppState } from 'src/app/store/app.reducer';
 import { loadSearchProfessionals } from '../../store/actions/searchProfessionals.actions';
 
@@ -20,7 +21,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor( private store: Store<AppState> ) { }
 
   ngOnInit(): void {
-    console.log('SearchComponent');
+    console.log('on Init SearchComponent');
+
     this.subscription = this.store.select('searchProfessionals').subscribe( ({ professionals, loaded, loading }) => {
       this.professionalList = professionals;
       this.loading = loading;
@@ -37,6 +39,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    console.log('on Destroy SearchComponent');
+    this.store.dispatch( clearSearchProfessionals()); 
     this.subscription.unsubscribe();
   }
   

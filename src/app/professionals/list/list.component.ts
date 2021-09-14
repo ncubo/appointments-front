@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { IProfessional } from 'src/app/models/professional.interfase';
 import { loadProfessionals } from 'src/app/store/actions';
 import { AppState } from 'src/app/store/app.reducer';
+import { IError } from '../../models/error.interface';
 
 @Component({
   selector: 'app-list',
@@ -15,14 +16,16 @@ export class ListComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
   loaded: boolean = false;
+  error!: IError;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
 
-    this.subscription = this.store.select('professionals').subscribe( ({ professionals, loaded }) => {
+    this.subscription = this.store.select('professionals').subscribe( ({ professionals, loaded, error }) => {
       this.professionalList = professionals;
       this.loaded = loaded;
+      this.error = error;
     } );
 
     this.store.dispatch( loadProfessionals() )

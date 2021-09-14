@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadSearchProfessionals, loadSearchProfessionalsSuccess, loadSearchProfessionalsError } from '../actions';
+import { loadSearchProfessionals, loadSearchProfessionalsSuccess, loadSearchProfessionalsError, clearSearchProfessionals } from '../actions';
 import { IProfessional } from '../../models/professional.interfase';
 
 export interface SearchProfessionalsState {
@@ -38,6 +38,15 @@ const _searchProfessionalsReducer = createReducer(searchProfessionalsInitialStat
             name: payload.name, 
             message: payload.message 
         } 
+    })),
+
+    on( clearSearchProfessionals, state => ({ 
+        ...state, 
+        professionals: [],
+        text: '',
+        loaded: false,
+        loading: false,
+        error: null
     })),
 
 );

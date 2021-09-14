@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 import { newProfessional, newProfessionalSuccess, newProfessionalError, 
         detailProfessional, detailProfessionalSuccess, detailProfessionalError } from '../actions';
 import { IProfessional } from '../../models/professional.interfase';
@@ -80,6 +80,6 @@ const _professionalReducer = createReducer(professionalInitialState,
 
 );
 
-export function professionalReducer(state: any, action: any) {
+export function professionalReducer(state: any, action: Action) {
     return _professionalReducer(state, action);
 }

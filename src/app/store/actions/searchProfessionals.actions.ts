@@ -15,3 +15,7 @@ export const loadSearchProfessionalsError = createAction(
     '[Search Professionals] Load Search Professionals Error',
     props<{ payload: any }>()
 );
+
+export const clearSearchProfessionals = createAction(
+    '[Search Professional] Clear Search Professional'
+);

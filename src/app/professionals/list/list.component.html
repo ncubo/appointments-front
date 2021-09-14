@@ -1,9 +1,21 @@
-<div class="card-group" *ngIf="loaded; else loadingSpinner">
-    <ng-container *ngFor="let currentProfessional of professionalList">
-        <professional-card [professional] = "currentProfessional"></professional-card>
-    </ng-container>    
-</div>
+
+<ng-container *ngIf="error === null; else errorTemplate">
+    <div class="card-group" *ngIf="loaded; else loadingSpinner">
+        <ng-container *ngFor="let currentProfessional of professionalList">
+            <professional-card [professional] = "currentProfessional"></professional-card>
+        </ng-container>    
+    </div>
+</ng-container>
 
 <ng-template #loadingSpinner>
     <app-loader></app-loader>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <div class="col-lg-12">    
+        <div class="alert alert-danger" role="alert">
+            <p>{{ error.name }}</p>
+            <p>{{ error.message }}</p>
+        </div>
+    </div>
 </ng-template>
