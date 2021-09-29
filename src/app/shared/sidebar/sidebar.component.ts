@@ -5,15 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
   status: boolean = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-    console.log('SidebarComponent');
-  }
 
   
   clickEvent(){

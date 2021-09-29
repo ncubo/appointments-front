@@ -40,7 +40,6 @@ export class NewComponent implements OnInit, OnDestroy {
       if(this.status === 'ok' && this.professionalForm.valid){
         this.resetForm();
       }
-
     });
 
     this.setVariables();

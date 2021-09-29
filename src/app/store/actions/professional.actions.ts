@@ -15,10 +15,6 @@ export const newProfessionalError = createAction(
     props<{ payload: any }>()
 );
 
-export const clearProfessional = createAction(
-    '[Professional] Clear Professional Success'
-);
-
 export const detailProfessional = createAction(
     '[Detail Professional] Detail Professional',
     props<{ id: number }>()

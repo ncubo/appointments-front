@@ -13,7 +13,3 @@ export const loadProfessionalsError = createAction(
     '[Professionals] Load Professionals Error',
     props<{ payload: any }>()
 );
-
-export const clearProfessionals = createAction(
-    '[Professional] Clear Professional Success'
-);

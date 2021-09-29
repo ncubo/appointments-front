@@ -8,7 +8,7 @@ export interface ProfessionalsState {
     loading: boolean,
     error: any
 }
-
+// { avatar:'', first_name:'', city:'', last_name:'', services: [] }
 export const professionalsInitialState: ProfessionalsState = {
     professionals: [],
     loaded: false,
