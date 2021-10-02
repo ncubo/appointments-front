@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoaderComponent } from './loader.component';
 
-xdescribe('LoaderComponent', () => {
+describe('LoaderComponent', () => {
   let component: LoaderComponent;
   let fixture: ComponentFixture<LoaderComponent>;
 
@@ -19,7 +19,14 @@ xdescribe('LoaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create loader component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should load image loading from assets', () => {
+    const imagePath = 'assets/images/loading.gif';
+    const elem: HTMLElement = fixture.debugElement.nativeElement.querySelector('div>img').src;
+    expect(elem).toContain(imagePath);
+  });
+
 });

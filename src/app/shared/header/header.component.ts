@@ -6,14 +6,10 @@ import { NavBar } from '../../models/navbar.interface';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   @Input() navList: NavBar[] = [];
 
   constructor() { }
-
-  ngOnInit(): void {
-    console.log('this.navlist: ', this.navList);
-  }
 
 }

@@ -27,7 +27,7 @@ export class ProfessionalsService {
   }
 
   /**
-   * Get all Professionals from Api
+   * Get all Professionals from Api by id
    */
    getProfessionalsById(id: number){
 

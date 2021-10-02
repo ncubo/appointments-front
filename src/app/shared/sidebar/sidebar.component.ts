@@ -6,14 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-
-  status: boolean = false;
-
-  constructor() { }
-
   
-  clickEvent(){
-      this.status = !this.status;       
-  }
+  constructor() { }
 
 }

@@ -6,14 +6,10 @@ import { IProfessional } from '../../models/professional.interfase';
   templateUrl: './professional-card.component.html',
   styleUrls: ['./professional-card.component.css']
 })
-export class ProfessionalCardComponent implements OnInit {
+export class ProfessionalCardComponent {
 
   @Input() professional!: IProfessional;
 
   constructor() { }
-
-  ngOnInit(): void {
-    console.log('');
-  }
 
 }
