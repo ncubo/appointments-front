@@ -28,11 +28,15 @@ export class ListComponent implements OnInit, OnDestroy {
       this.error = error;
     } );
 
-    this.store.dispatch( loadProfessionals() )
+    this.dispatchLoadProfessionals();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  dispatchLoadProfessionals(){
+    this.store.dispatch( loadProfessionals() );
   }
 
 }
