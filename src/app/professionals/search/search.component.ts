@@ -21,8 +21,6 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor( private store: Store<AppState> ) { }
 
   ngOnInit(): void {
-    console.log('on Init SearchComponent');
-
     this.subscription = this.store.select('searchProfessionals').subscribe( ({ professionals, loaded, loading }) => {
       this.professionalList = professionals;
       this.loading = loading;
@@ -31,15 +29,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   searchProfessional(textToSearch: string){
-
     if(textToSearch !== ''){
       this.store.dispatch( loadSearchProfessionals({ text: textToSearch }));
     }
-
   }
 
   ngOnDestroy(): void {
-    console.log('on Destroy SearchComponent');
     this.store.dispatch( clearSearchProfessionals()); 
     this.subscription.unsubscribe();
   }

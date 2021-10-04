@@ -26,6 +26,7 @@ export class NewComponent implements OnInit, OnDestroy {
 
   constructor( private fb: FormBuilder, private store: Store<AppState>) { 
     this.createForm();
+    this.setVariables();
   }
 
   ngOnInit(): void {
@@ -41,8 +42,7 @@ export class NewComponent implements OnInit, OnDestroy {
         this.resetForm();
       }
     });
-
-    this.setVariables();
+    
   }
 
   ngOnDestroy(): void {

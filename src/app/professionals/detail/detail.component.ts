@@ -22,6 +22,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   loaded: boolean = false;
   status: TStateAction = 'waiting';
   error!: IError;
+  id!: number;
   
   constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute) { }
 
@@ -35,8 +36,8 @@ export class DetailComponent implements OnInit, OnDestroy {
       this.error = error;
     } );
 
-    const id = this.activatedRoute.snapshot.params.id;
-    this.store.dispatch( detailProfessional({ id }) );
+    this.id = this.activatedRoute.snapshot.params.id;
+    this.store.dispatch( detailProfessional({ id: this.id }) );
 
   }
 

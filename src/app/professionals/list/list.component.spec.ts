@@ -3,9 +3,9 @@ import { ListComponent } from './list.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 
-describe('ListComponent', () => {
+describe('ListComponent (Professionals)', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
   let store: MockStore;
@@ -43,8 +43,10 @@ describe('ListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
+    component.subscription = new Subscription();
     spyOn(store, 'dispatch').and.callFake(() => {});
     spyOn(store, 'select').and.returnValue(of(updatedState));
+    spyOn(component.subscription, 'unsubscribe').and.callThrough();
   });
 
   it('should create ListComponent', () => {
@@ -58,8 +60,13 @@ describe('ListComponent', () => {
   });
 
   it('ListComponent should dispatch dispatchLoadProfessionals', () => {
-    component.ngOnInit();
+    component.dispatchLoadProfessionals();
     expect(store.dispatch).toHaveBeenCalled();
+  });
+
+  it('unsubscribe when destroyed', () => {
+    component.ngOnDestroy();
+    expect(component.subscription.unsubscribe).toHaveBeenCalled();
   });
 
 });

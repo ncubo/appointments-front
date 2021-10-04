@@ -3,26 +3,33 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewComponent } from './new.component';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { of, Subscription } from 'rxjs';
 
 
 
 describe('NewComponent', () => {
   let component: NewComponent;
   let fixture: ComponentFixture<NewComponent>;
-
   let store: MockStore;
 
-  const initialState = { 
-    professional: { avatar:'', first_name:'', city:'', last_name:'', services: [] },
+  const initialState = {
+    professionals: [],
     loaded: false,
-    loading: false,
-    state: 'waiting',
-    error: { url: '', name: '', message: '' }
+    loading: true,
+    error: { name:'', url:'', message: '' }
   };
 
-  beforeEach(waitForAsync(() => {
+  const updatedState = {
+    professionals: [],
+    loaded: true,
+    loading: false,
+    error: { name:'', url:'', message: '' }
+  };
 
-    TestBed.configureTestingModule({
+
+  beforeEach(async () => {
+
+    await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         FormsModule,
@@ -37,13 +44,16 @@ describe('NewComponent', () => {
 
     store = TestBed.inject(MockStore);
 
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NewComponent);
     component = fixture.componentInstance;
-    // fixture.detectChanges();
+    component.subscription = new Subscription();
+    spyOn(store, 'select').and.returnValue(of(updatedState));
+    spyOn(component.subscription, 'unsubscribe').and.callThrough();
   });
+
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -95,5 +105,14 @@ describe('NewComponent', () => {
     expect(control?.valid).toBeFalsy();
   });
 
+  it('should subscribe to store (filter by professionals) and loaded have changed value', () => {
+    component.ngOnInit();
+    expect(store.select).toHaveBeenCalled();
+  });
+
+  it('unsubscribe when destroyed', () => {
+    component.ngOnDestroy();
+    expect(component.subscription.unsubscribe).toHaveBeenCalled();
+  });
 
 });
