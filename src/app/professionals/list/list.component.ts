@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChange } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IProfessional } from 'src/app/models/professional.interfase';
@@ -11,7 +11,7 @@ import { IError } from '../../models/error.interface';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit, OnDestroy {
+export class ListComponent implements OnInit, OnDestroy, OnChanges {
 
   subscription: Subscription = new Subscription();
   professionalList: IProfessional[] = [];
@@ -29,6 +29,10 @@ export class ListComponent implements OnInit, OnDestroy {
     } );
 
     this.dispatchLoadProfessionals();
+  }
+
+  ngOnChanges(changes: any){
+    console.log('changes', changes)
   }
 
   ngOnDestroy(): void {

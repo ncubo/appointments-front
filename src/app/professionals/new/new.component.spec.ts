@@ -5,8 +5,6 @@ import { NewComponent } from './new.component';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { of, Subscription } from 'rxjs';
 
-
-
 describe('NewComponent', () => {
   let component: NewComponent;
   let fixture: ComponentFixture<NewComponent>;

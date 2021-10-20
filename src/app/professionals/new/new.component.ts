@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, OnChanges, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -14,8 +14,9 @@ import { IError } from '../../models/error.interface';
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.css']
 })
-export class NewComponent implements OnInit, OnDestroy {
+export class NewComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  @ViewChild('formulario') formulario!: ElementRef;
   subscription: Subscription = new Subscription();
   professionalForm!: FormGroup;
   professional!: IProfessional; // = { avatar:'', city:'', first_name: '', last_name:'', services:[{ aboutme:'', service: '', timetable:'' }] };
@@ -27,6 +28,7 @@ export class NewComponent implements OnInit, OnDestroy {
   constructor( private fb: FormBuilder, private store: Store<AppState>) { 
     this.createForm();
     this.setVariables();
+    // this.formulario = 
   }
 
   ngOnInit(): void {
@@ -48,6 +50,12 @@ export class NewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+  ngAfterViewInit() {
+    // just trying viewChild
+    console.log('formulario', this.formulario.nativeElement[0].value = 'Hola');
+  }
+
 
   createForm() {
     this.professionalForm = this.fb.group({

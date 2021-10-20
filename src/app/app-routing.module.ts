@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ProfessionalsComponent } from './professionals/professionals.component';
-
 
 const routes: Routes = [
   { 
