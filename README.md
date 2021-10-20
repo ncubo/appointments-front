@@ -1,14 +1,10 @@
 # AppointmentsFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4. and using Json-Server as Fake server API
 
 ## Install Dependencies
 
-First install all dependencies used in this project with `npm install`
-
-## Json server (fake server api)
-
-Maybe you need to install json serve globally in your pc `npm install -g json-server`
+First install all dependencies used in this project with `npm install` 
 
 ## Run Json server
 
